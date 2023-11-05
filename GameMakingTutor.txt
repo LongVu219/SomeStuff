@@ -1,0 +1,111 @@
+We're unsing sfml here
+- first let get rid of all stupid setup or anything like that
+
+Window module:
+- First creat your game window
+sf::Window window(sf::VideoMode(800, 600), "My window"); // creat a 800x600 window for game
+
+but it appear then suddenly shut off, it's ok
+
+while (window.isOpen())
+    {
+        // check all the window's events that were triggered since the last iteration of the loop
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            // "close requested" event: we close the window
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+    }
+//keep your window not shut off as long as there're still some pending event
+//this is the main game loop
+//Whenever we get an event, we must check its type (window closed? key pressed? mouse moved? joystick connected? ...)
+==> dass thee event type
+
+window.setVerticalSyncEnabled(true); // control your frame rate same as your graphic card
+window.setFramerateLimit(60); // call it once, after creating the window
+
+Caution
+Never use both setVerticalSyncEnabled and setFramerateLimit at the same time! 
+They would badly mix and make things worse.
+
+
+--------------------Event-------------------------
+The Closed event
+if (event.type == sf::Event::Closed)
+    window.close();
+
+
+if (event.type == sf::Event::Resized)
+{
+    std::cout << "new width: " << event.size.width << std::endl;
+    std::cout << "new height: " << event.size.height << std::endl;
+}
+print to the terminal new size both adjust by hand or code
+
+
+The LostFocus and GainedFocus events
+if (event.type == sf::Event::LostFocus)
+    myGame.pause();
+if (event.type == sf::Event::GainedFocus)
+    myGame.resume();
+
+
+TextEntered event
+if (event.type == sf::Event::TextEntered)
+{
+    if (event.text.unicode < 128)
+        std::cout << "ASCII character typed: " << static_cast<char>(event.text.unicode) << std::endl;
+}
+
+if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+{
+    // left key is pressed: move our character
+    character.move(1.f, 0.f);
+}
+
+The MouseWheelScrolled event
+u scroll up or dow
+if (event.type == sf::Event::MouseWheelScrolled)
+{
+    if (event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel)
+        std::cout << "wheel type: vertical" << std::endl;
+    else if (event.mouseWheelScroll.wheel == sf::Mouse::HorizontalWheel)
+        std::cout << "wheel type: horizontal" << std::endl;
+    else
+        std::cout << "wheel type: unknown" << std::endl;
+    std::cout << "wheel movement: " << event.mouseWheelScroll.delta << std::endl;
+    std::cout << "mouse x: " << event.mouseWheelScroll.x << std::endl;
+    std::cout << "mouse y: " << event.mouseWheelScroll.y << std::endl;
+}
+
+
+The MouseButtonPressed and MouseButtonReleased events
+==> get a position of a click and know it's a click
+if (event.type == sf::Event::MouseButtonPressed)
+{
+    if (event.mouseButton.button == sf::Mouse::Right)
+    {
+        std::cout << "the right button was pressed" << std::endl;
+        std::cout << "mouse x: " << event.mouseButton.x << std::endl;
+        std::cout << "mouse y: " << event.mouseButton.y << std::endl;
+    }
+}
+
+
+The MouseMoved event
+==> get position where your mouse is pointing at
+if (event.type == sf::Event::MouseMoved)
+{
+    std::cout << "new mouse x: " << event.mouseMove.x << std::endl;
+    std::cout << "new mouse y: " << event.mouseMove.y << std::endl;
+}
+
+
+The MouseEntered and MouseLeft event : a little bit useless to me
+if (event.type == sf::Event::MouseEntered)
+    std::cout << "the mouse cursor has entered the window" << std::endl;
+if (event.type == sf::Event::MouseLeft)
+    std::cout << "the mouse cursor has left the window" << std::endl;
+

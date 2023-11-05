@@ -1,0 +1,16 @@
+Consider this prob : u have 2^20 elem u need to calculate 
+F(x) = Sum of all submask of x for all x from 1 -> 2^20
+ex F(110) = a[000] + a[010] + a[100] + a[110]
+all submask method : 3^n (slow) 
+
+SOS dp method : n*(2^n) (good)
+Main idea : creat such group that each group in non intersect
+
+
+
+Call this dp state : S(mask,i) : differ in bit of mask and submask of mask only happen in 0 -> ith bit
+
+if (ith bit == 0) S(mask,i) = S(mask,i - 1)
+else S(mask,i) = S(mask,i - 1) U S(mask xor 2^i,i - 1)   : if we chose 1  /  if we chose 0     for ith bit
+
+See this blog pict + code : https://codeforces.com/blog/entry/45223

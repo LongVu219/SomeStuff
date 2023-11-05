@@ -1,0 +1,66 @@
+Actually these fucking mistake make me die at ABC of codeforce
+So get rid of them may give me a chance to fight with harder 
+BUGABOO (which i am training for)
+
+So i will kill it once forever.Here is the name : 
+
+- Missed some case
++ Pay more concentrate to your solution (most) 
++ Nothing is 100% correct
++ Write checker (in case of you can't this is real challenge)
+
+- Wrong observation (greedy) (stupid thinking)
++ Try checker with backtracking
++ When no proof but u feel it right ==> checker
+
+- Complicated Mind
++ Make sure no pono or msb before any contest al least 1 - 2 days
+
+- Complicated Imple 
++ Try tougher yourself
+
+- Low concentrate
++ Never play night game or sleep after 12h
+
+In average i can solve C in less than 30min ==> ABC took at most 1h then it can be nice contest 
+
+-----------------------------------------------------------------------------------------------
+
+Oh i need talk more about overcomplicated, it's a real big issue
+
+issue : u miss see sth simple, so u thing it's hard and then u apply uncommon segtree, flow, bitmask, stupid greedy
+and you are fucked =(((( 
+
+so i fight for 1 afternoon and 1 light night and here is result : 
+
+Submission : 14     AC : 7
+Total death rate : 85%
+
+So, u overcomplicated thing u dont understand
+u are weak in number theory or some bruh bruh lmao greedy
+==> keep trying man  
+
+
+Hmm, a month but u not see improving, it likely you practice not hard enough
+but more likely you're doing wrong  
+						-is-this-fft-
+
+u need to detect issue, but unfortunately u often detect wrong issue
+
+The key is about your ambition of solving hard problem
+Not about amount of time u spend
+Not about the number u solve
+Not about the hard of editorial u read
+But about the way you think
+
+A good measure is no longer good if it become a goal
+					- some wise dude i forgot his name-
+
+So I have elaborate some mistake that might lead to bored-uncertain-not-focus-mind
++ Stay up late (even u sleep for 8h) : fatal
++ Pono : very fatal and must stop, many study provided its danger
++ Play a very good game : bad (luckily i can control it)
++ See good movie : ok (we can finish it fast and later)
++ Bad habit (not workout,sleep badly,not drink your energy) : bad
+==> stay sharp and dont pretend to read editorial or looking for help
+- For the Cruiser- 2/1/2022

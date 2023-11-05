@@ -1,0 +1,12 @@
+------------------Advance data structure-----------------------------------
+Code : https://pastebin.com/6N3b0hDm
+Good source : 
+- https://vnoi.info/wiki/translate/codeforces/palindrome-tree.md
+Code to count all substring which is palindrome : 
+https://github.com/ADJA/algos/blob/master/Strings/PalindromeTree.cpp
+
+Encounter problem : https://oj.uz/submission/422041
+sol : https://usaco.guide/problems/apio-2014palindrome/solution
+
+Hardly seen in Ewar (by Lam_lai_cuoc_doi)
+But TST may counter

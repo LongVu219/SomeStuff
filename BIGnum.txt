@@ -1,0 +1,47 @@
+c
+
+/*
+Đếm số cấu hA�nh: d1 + d2 + ... + d[n - 1] + d[n] = m
+d[i] lA  cA�c chữ số 0...9
+f(n, m) = số cấu hA�nh
+dn = 0, f(n, m) = f(n - 1, m)
+dn = 1, f(n, m) = f(n - 1, m - 1)
+...
+dn = 9, f(n, m) = f(n - 1, m - 9)
+=> f(n, m) = f(n - 1, m) + f(n - 1, m - 1) + ... + f(n - 1, m - 9)
+Cải tiến cA�ch tA�nh cho tiết kiệm bộ nhớ vA  nhanh
+Khi tA�nh xong hA ng n - 1 =  mảng 1 chiều A[0...m]
+TA�nh mảng cộng dồn B[i] = A[0] + A[1] + ... + A[i]
+f(n, m) = B[m] - B[m - 10]
+*/
+
+// Fast IO
+template<typename T> inline void Read(T &x){
+	register char c;
+	bool neg=false;
+	for(c=getchar();c<'0'||c>'9';c=getchar()) if(c=='-') neg=true;
+	for(x=0;'0'<=c&&c<='9';c=getchar()) x=x*10+c-'0';
+	if(neg) x=-x;
+}
+
+template<typename T,typename... Args> inline void Read(T &x,Args&... args){
+	Read(x);
+	Read(args...);
+}
+
+template<typename T> inline void Write(T x){
+	if(x<0) putchar('-'),x=-x;
+	if(x>9) Write(x/10);
+	putchar(x%10+'0');
+}
+
+template<typename T> inline void Write(T x, const char &c){
+	if(x<0) putchar('-'),x=-x;
+	Write(x);
+	putchar(c);
+}
+
+template <typename T,typename... Args> inline void Write(const T &a, const char &c, Args... args){
+    Write(a,c);
+    Write(args...);
+}

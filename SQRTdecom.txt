@@ -1,0 +1,56 @@
+Good source : https://usaco.guide/plat/sqrt?lang=cpp
+We can
+- Divide the array
+- Divide the query (batching)
+- Try to combine solution
+one has < sqrtN   one > sqrtN but appear no more than sqrtN
+
+- Some kind of observation : a number n has no more than sqrtN distinct num such these sum of num = n
+ 
+a nice trick on Mo algo : Hibert curve
+
+Blog : https://codeforces.com/blog/entry/61203
+
+We got this code
+
+constexpr int logn = 20;
+constexpr int maxn = 1 << logn;
+
+long long hilbert(int x, int y)
+{
+	long long d = 0;
+	for (int s = 1 << (logn - 1); s; s >>= 1)
+	{
+		bool rx = x & s, ry = y & s;
+		d = d << 2 | rx * 3 ^ static_cast<int>(ry);
+		if (!ry)
+		{
+			if (rx)
+			{
+				x = maxn - x;
+				y = maxn - y;
+			}
+			swap(x, y);
+		}
+	}
+	return d;
+}
+
+bool cmp(LL a,LL b){
+	ll x = hilbert(a.fs,a.sc),y = hilbert(b.fs,b.sc);
+	return x < y;
+} 
+
+Just change the cmp function from normal MO -> HILBERT and we're done hardly use this
+
+
+nice observasion on sqrt decom
+Problem : https://csacademy.com/contest/archive/task/parallel-rectangles/statement/
+- Given 2e5 point, count the number of rectangle shape made ? 
+
+- Split into 2 case : 
++ when cordinate x has less than sqrtN point ==> sz^2 buffalo count (y1,y2)
++ On fixed x1 x2
+
+
+

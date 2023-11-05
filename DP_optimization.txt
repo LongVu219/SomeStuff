@@ -1,0 +1,36 @@
+https://codeforces.com/blog/entry/8219
+
+DAC optimize : 
+given dp transition : f(i,j) = f(i - 1,k) + C(k,j) for all k <= j
+
+apply DAC when monoticity condition is proven :  
+best(i,j) < best(i,j + 1) for every j and i it means "The optimal "splitting point" for a fixed i increases as j increases."
+good source https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html
+
+5 step to DAC dp :
+- Think about DAC dp (monoticity)
+- Try to prove DAC correct 
+- Cry 
+- Think about imple
+- Imple then win (maybe some template ? :D ?)
+problem + code : https://codeforces.com/contest/321/problem/E
+
+- sometimes NEED mem optimize (by LMH's trick) 
+
+* one more lăn lê bò trượt trick 
+it look like this (By VietCT)
+
+ll cal(ll lf, ll rt){
+    while (r < rt) r++, add(r);
+    while (l > lf) l--, add(l);
+    while (l < lf) del(l), l++;
+    while (r > rt) del(r), r--;
+    return res;
+}
+
+==> calculate C(i,j) of a layer in On ==> Onlogn in total (very good trick)
+source : https://codeforces.com/contest/868/problem/F (By VietCT)
+	 https://codeforces.com/contest/1527/problem/E (By Long_VuV)
+
+
+

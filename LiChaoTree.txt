@@ -1,0 +1,9 @@
+Getting fucked by cvh ? Use Li Chao tree : https://cp-algorithms.com/geometry/convex_hull_trick.html#toc-tgt-1
+- Imple 80% similar to segtree only Add is differ
+- Can handle any line with any order !!!
+
+Main Weakness : 
+- Abit Slow and heavy mem
+- Take caution in big A stuff (A*x + b) this case need compression on all x (no need for A)
+
+Exp prob + code nailed : https://oj.uz/submission/445146

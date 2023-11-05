@@ -1,0 +1,13 @@
+Sprague – Grundy Theorem : Use for impartial game - a game which have 2 player and 1 go first, every information is visible
+Such as Nim...... bốc 1 2 3 viên sỏi, ai bốc cuối thắng :v
+
+Nim 1 pile : 
+f(i) = mex(f(i - 1),f(i - 2),f(i - 3)); f(i) > 0 ==> 1 win else 2 win
+How about many pile ?
+
+final = f(x1) ^ f(x2) ^ ..... ^f(xn)
+if final > 0 ==> 1 win else 2 win 
+Link 1 : https://www.geeksforgeeks.org/combinatorial-game-theory-set-3-grundy-numbersnimbers-and-mex/
+Link 2 : https://www.geeksforgeeks.org/combinatorial-game-theory-set-4-sprague-grundy-theorem/
+
+Vid : Prob A of https://www.youtube.com/watch?v=M1rLcpdzXC0

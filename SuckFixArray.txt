@@ -1,0 +1,15 @@
+Suffix material : 
+https://usaco.guide/adv/suffix-array?lang=cpp#implementations
+https://codeforces.com/edu/course/2/lesson/2
+https://cp-algorithms.com/string/suffix-array.html
+
+Code : https://judge.yosupo.jp/submission/49694
+
+==> rough code and u dont want to counter it during Ewar
+substr = continious substring
+S = given string
+Suffix can use to : 
+- find if a substr exit in S (BS on SA) 
+- count how many substr (some random p) in S (find L R by binary)
+==> good !!!
+Code by Long_VuV : https://codeforces.com/edu/course/2/lesson/2/3/practice

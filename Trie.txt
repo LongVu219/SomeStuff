@@ -1,0 +1,7 @@
+Take a look at  sample code : https://vn.spoj.com/submit/NKSEV/id=26408193
+
+It's just remembering the fucking thing =(((((
+
+Trie by array
+Take a look at this problem
+- https://codeforces.com/contest/282/submission/99906832 (VietCT)

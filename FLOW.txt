@@ -1,0 +1,11 @@
+First Read : https://usaco.guide/adv/max-flow?lang=cpp
+Read the CPH --> LMH pdf
+
+if u need to trace back the flow <print the path out> 
+u need to notice that u need to rebuild graph after 1 max_flow checking
+if some capacity[u][v] is > 0 after 1st max_flow then it's useless ==> kill it
+see this code : https://cses.fi/paste/38b3403d2dbf8b72310756/
+
+about Dinic : Watch usaco video --> LMH pdf for code
+
+for Dinic AC code : https://oj.vnoi.info/src/521518 : For directed edge

@@ -1,0 +1,8 @@
+Must known about centroid :
+
+- we can find all subtree of a tree centroid in NlogN using dp on tree (or recursion),
+using that father's centroid is father of son's centroid
+
+Code : https://pastebin.com/Lf1CULMz
+
+Trace_Up in code = finding all centroid

@@ -1,0 +1,26 @@
+Check this out : https://codeforces.com/contest/815/submission/127414835
+Good resource : https://usaco.guide/adv/comb-sub
+Code by MTHC : https://codeforces.com/contest/815/submission/127414835
+ 
+Actually, many kind of TreeDP may encounter but this one is so bruh
+
+Base idea : suppose we are at vertex U and V1 V2 V3 is child of U 
+We are about to merge U x V1 -> U x V2 -> U x V3
+
+///combine U and some V
+vector<ll> combine(vector<ll> a,vector<ll> b){
+    ll sz1 = a.size(),sz2 = b.size();
+    vector<ll> res(sz1 + sz2 - 1,inf);
+    for (ll i = 0;i < sz1;i++)
+        for (ll j = 0;j < sz2;j++)
+            res[i + j] = min(res[i + j],a[i] + b[j]);
+    return res;
+}  
+
+a little bit hard to understand at first, but when u get it, it's awesome !!!
+
+Another important thing is total complexity over merging all subtree neat-size-by-vector
+is only O(n^2) not O(n^3) !!! Check the resource
+
+
+ 

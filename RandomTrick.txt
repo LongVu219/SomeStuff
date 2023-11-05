@@ -1,0 +1,8 @@
+Take a look ai this : https://codeforces.com/contest/1514/submission/113594680
+- in segment L R try to find the most frequent element
+
+
+Actually, this's a considerable solution when the AC probality is high
+In this problem we the AC rate for previous code is 1 - 1/(2 ^ 50). It's high enough
+
+When encounter a problem which related to some fuking probability ==> try this

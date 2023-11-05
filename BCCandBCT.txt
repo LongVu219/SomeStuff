@@ -1,0 +1,14 @@
+https://codeforces.com/group/EJ9yNmxXF5/contest/348990/submission/131988010
+
+Look at this prob and sol
+
+-Every time we see a (maybe) crit node ==> all node in our stack form a maximal BCC
+
+To build a block cut tree :
+- If we found a BCC we may connect "head of BCC" -> fake node -> all remain node
+
+block cut tree can do the following prob : 
+- Given a undirected graph, given Q query x y we want to know how many node 
+if we delete it then we cant travel from x -> y
+
+Will this be encountered anyway ? Yes it really encountered in icpc

@@ -1,0 +1,20 @@
+Very Black-Red Trick with unknown complexity but seem to be fast =)))
+-It is Dijkstra but use queue instead =)) ?
+Pseudo code belike : 
+SPFA(v):
+	d[i] = inf for each vertex i
+	d[v] = 0
+	queue q
+	q.push(v)
+	while q is not empty
+		u = q.front()
+		q.pop()
+		for each i in adj[u]
+			if d[i] > d[u] + w(u,i)
+				then d[i] = d[u] + w(u,i)
+				if i is not in q
+					then q.push(i)
+
+Random shuffle the edge to get fast =)) ?
+
+To check if are there a negative cycle ==> check if a node is push-in-queue >= n time

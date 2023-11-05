@@ -1,0 +1,20 @@
+In biparties graph we call 2 side A and B
+
+A	B
+A	B
+A	B
+A	B
+A	B	
+	B
+	B
+
+https://luckytoilet.wordpress.com/2013/12/21/halls-marriage-theorem-explained-intuitively/
+See this dude web for better picture and understanding
+
+WLOG, |A| <= |B| we want to creat a perfect match for A (All elem in A match 1 elem in B)
+And we need to detect is it possible or not
+
+We iterate all submask of A called S
+Then if this inequality hold for All S from 1 -> (1 << |A|) - 1 ==> perfect match or fuck it
+|S| = number of active bit in S <= D(S) = number of elem in B have at least 1 edge connect active bit in A
+

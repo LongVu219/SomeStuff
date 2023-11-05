@@ -1,0 +1,6 @@
+This is Dynamic Segment tree imple, we can deal with big thing 
+by compression. But somtime, we must online or cant be compress
+
+the main idea is imple by iterator and only create what we need
+https://oj.uz/submission/474565
+

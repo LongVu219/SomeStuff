@@ -1,0 +1,12 @@
+use class T for all-type data type
+this is how to check type of a pointer
+
+template<class T>
+bool isInt(T* t){ return false;}
+
+template<>
+bool isInt(int* t){ return true; }
+
+int* ptr1;
+char* ptr2;
+cout<<isInt(ptr1)<<" "<<isInt(ptr2); // 1 0

@@ -1,0 +1,252 @@
+-----------------------------------Solf Skill--------------------------------------------
+-Never give the fuck up in contest
+-Keep yourself clean to avoid distract u from working
+-Try for about 45p - 1h in practice, 25 minutes in eforce, if can't ==> buffalo then skip or eat subtask
+-No msb before contest (MAKE THIS SURE !!!)
+-Be confident we fight like a knight not a samurai (samurai will die on their field) bruh 
+-Avoid porn as much as possible
+-Make sure u remember code template and checker, checker is powerful for u
+-Dont bug in checker or u will be fucked
+-Re-read your common mistake
+-Be careful with what you code for
+
+Some in-Ebattle exp :
+-Watch your fucking time,Remember never spend more than avg time for just 1 fucking task
+-Read ALL statement first, then decide what to do
+-Go get score first for 1/2 first time
+-Remember template,checker,..... prepare as much as you can
+-Side-Quest is really dangerous so deal these thing first
+-Read statement carefully
+-Make sure u obey battle tactic !!!
+-Stay awake soldier !!! Nothing could be 100% correct
+-Make sure dont print debug after contest !!!
+
+*- When u are lost, check up your purpose and your heart will know what to do 
+									-Adam Khoo-
+
+
+Funny trick : 
+Take a look at this : https://oj.uz/submission/406408
+I make a 3^n solution (obviously) and pass in 1s with n = 20 ? :D ?
+The key is in line 41 => i cout<<YES and stop program once i reach my target ==> a small but ok optimization 
+
+-----------------------------------Hardware Skill-----------------------------------------
+
+-To calculate diameter of a tree first find the farthest ver from root then the farthest from this node 
+==> diameter
+
+
+-You'r given an array, how to find out minimum LCS you can split from this array ???
+Ex: 
+1 3 2 4 ==> 2
+1 6 2 4 3 ==> 3
+Ans : the LDS of the array : proven
+Read this if you'r fucked
+https://www.geeksforgeeks.org/minimum-number-of-increasing-subsequences/
+
+
+-gcd(a[l],a[l + 1],a[l + 2],.......,a[r]) = gcd(a[l],a[l + 1] - a[l],a[l + 2] - a[l + 1],......,a[r] - a[r - 1])
+==> GCD segment tree !!! 
+More Info : https://codeforces.com/blog/entry/9722
+
+
+Sparse Table : A very useful stuff to do-some-fucking-thing in the array
+PS: Even GCD query !!!
+
+
+A trick on graph : you'r given a bunch of u v mean that no edge between u and v (2e5 pair)
+==> HOW to get the number of connected comp ???
+Let call deg[x] = the number real edge of x
+-Split edge in 2 group:
++ deg[x] > n/2 ==> all of them in the same CC
++ deg[x] < n/2 ==> just buffalo them to get CC 
+real edge x < fake edge x
+real edge y < fake edge y
+==> sum of buffalo < 2e5 =)))) 
+
+
+A random strong STL : https://oj.uz/submission/398625
+#include <ext/rope>
+__gnu_cxx::crope s[1000100];
+U can store 1e6 string each string may contain 2e5 elem
+U can get any element u want !!!
+Complexity : Logn for 1 ask
+
+
+Given 3 triplet Xi,Yi,Zi u want obtain A,B,C = sum of some (X1,Y1,Z1)*sthg + (X2,Y2,Z2)*sthg / GCD(final_sum)
+Source : https://cses.fi/file/ce24679faa9a8e4e5110e1bdd837057f11c3dfb954498bdbcb2b1a0abead5517/     name : Mixture
+https://codeforces.com/blog/entry/80490
+Let pair (a,b) = (X/(X + Y + Z),Y/(X + Y + Z))
+Lemma 1 : the answer is <= 3 or we can't
+if some (a,b) = target ==> 1
+if target on some line ==> 2
+if target inside a triangle ==> 3
+else ==> 0
+ 
+
+Given a permutation p1 p2 p3 p4 ... pn in one step you can swap pi and pj ==> at least how many swap to make it sorted ?
+Greedy : swap 1 <-> pos[1]   2 <-> pos[2] .....  
+Build a graph, there is an edge between p[x] and x
+==> ans = n - number of cc 
+See this advance prob : https://oj.vnoi.info/problem/hsgso20_permswap
+Build a segment tree to deal with u v L R query ==> brilliant !!!
+
+
+Some bit trick : HOW to iterate over all submask of mask effectively ? O(2^bit1) complexity with ez imple ?
+https://cp-algorithms.com/algebra/all-submasks.html
+In case of too lazy to click : 
+
+int s = m;
+while (s > 0) {
+ ... you can use s ...
+ s = (s-1) & m;
+}
+==> NICE 
+
+
+You got a bunch of query ? Try a SQRT decom anyway :v 
+SQRT decom usually super useful
+
+
+How to check whether given graph is biparties with simple DSU ? n vertice m edge
+Just create n fake vertices
+Now if we have edge x -> y    ==>   x -> y + n and x + n -> y
+A graph is biparties if there's no odd cycle
+So if Find(x) == Find(x + n) ==> have odd cycle  
+
+
+Hash with bitmask : https://codeforces.com/group/EJ9yNmxXF5/contest/333704/problem/A
+
+Given n element each elem < n and > 0 check whether  (l -> r) is a permutation (1e5 query)      a permutaion is 0,1,2,3,....,n
+==> Hash then see if (pre[r] - pre[l - 1] + mod) % mod == 2^0 + 2^1 + 2^2 + ...... + 2^(r - l) 
+
+
+Martrix expo cool trick: 
+-Count how many way to travel from u -> v in a graph in 1e9 step ? 
+Standard matrix expo : ppffffff
+
+-How about ATMOST 1e9 step ? (2) 
+==> creat a source node that have edge to every node and itself
+==> ans = sum(root.a[source][1] + ...... ) all node
+
+-How about we have weighted edge and we only travel ATMOST 1e9 weight ? 
+-An (u -> v) edge have wei = 3 ==> u - fake - fake + 1 - v each wei 1
+==> problem (2) again :v  
+
+
+How to sort increasing a permutation 6 3 1 2 5 4 with least adj swap ? 
+==> number of inv pair (6 3) (6 1) ....
+==> number of not inv pair to sort decreasing
+
+
+String algo about LCP
+Take a look : http://cope-edu.com/contests Find LOGINSTR
+-String stand stupidly ? Try some sort out ! ==> alway take subset. After sort
+LCP(string num i,string num j) =  min LCP(i,j - 1),LCP(j - 1,j) Prove : Look at LCA of Trie
+
+
+the sign of divisible by 11
+suppose we got number x = a1a2a3a4a5a6 (in decimal representation)
+x % 11 == 0 if (a1 + a3 + a5 - a2 - a4 - a6)%11 = 0
+==> (sum odd position - sum even position)%11 == 0
+
+
+Given a set S contain a1 a2 a3 .... an, Can any number x (x <= sum of S) be presented by 
+some ax1 + ax2 + ax3 +.... axM ?
+==> we need to check if there's some x that (sum of all ai (ai <= x)) denote by SUM < x
+if have so the answer is NO, else if no x exist ==> YES
+Prove : NO : if there's some x like that ==> dpcm
+YES : assume we have some x that SUM > x we need to prove that we can chose some elem to make X
+ll val = SUM - x, if we can take val oops, WA prove =((( but correct statement
+
+
+How to know the maximum inversion we can reduce if we can swap some ai and aj in an array ? (2e5)
+- Make point (i,ai) and find the rec have max point with upleft and downright a point
+==> sweep line 
+code : https://lqdoj.edu.vn/src/752500
+idea : https://www.hackerrank.com/contests/worldcupsemifinals/challenges/lauren-and-inversions/editorial
+
+in short, convert to another 2 vector of possible upleft and downright ==> we will update a consecutive range
+then transform in to update a rectangle in new 2d cordinate
+
+ex : we have 2 vector
+0 1 2 3 4 5 6 (1)
+0 1 2 3 4 (2)
+
+we need update 2 -> 4 in (1) and 0 -> 3 in (2) ==> update rec (2,0) -> (4,3) by + 1
+==> sweep line
+
+
+MEDIAN ==> TURN TO BS 01
+
+
+-Be fucking aware about calling a[L - 1] and L can be 0 cyka blyat
+
+
+How to find minimum difference between any 2 elem of 2 set with update query ?
+ex : https://codeforces.com/group/IYDdEhlzam/contest/352970/problem/A by MEGAGOD
+- 1 3 7 9 12 (O)
+- 5 8 10 (X)
+==> 10 - 9 = 1
+Make a range line (val set) O - O - X - O - X - O - X - O
+if (O - X) or (X - O) ==> make a link 
+for add and del : Look for nearest left and nearest right then perform magic
+2 time add and 1 delete
+
+
+We can make prime decomposition for all A[i] in O max log max instead of O max sqrt max
+by tracking prm[x] = a prime divisor of x
+see the code below : 
+https://codeforces.com/contest/1582/submission/134452337 (Add function) 
+
+
+How to iterate all bit1 in bitset with O(bit1) ?
+https://codeforces.com/blog/entry/43718
+
+We have bitset<1000> bs;
+bs._Find_first() -> first 1 bit
+bs._Find_next(position) -> next 1 bit
+
+
+vector.push_back is a little bit slow when stuff is big
+but there's some faster way
+we will make vector.reserve(0) before do anything so it may run faster ? :D ?
+dont miss seen it as reverse =))) 
+
+
+When you get a O n^2 solution which likely buffalo all i and j and find i - a[i] < j - a[j] (i < j)
+==> you might want to look for inversion by IT merging (is there any inversion ? not how many inversion)
+(ah yes, this type of problem need to checking dynamically)
+Problem : https://codeforces.com/gym/102268/problem/D
+Code by MY_GAME : https://codeforces.com/gym/102268/submission/141468065
+very nice trick Make sure review blyat
+
+
+Given the following DP : dp[i] = j : i -> 1   max(a[i],a[i - 1],....a[j])*dp[j - 1]    dp[0] = 1;
+Naive : O(n^2) (stupid)
+Luckily, we can make it On by using stack store pair (max_value,sum_value) -> monocity ?
+Prob : https://atcoder.jp/contests/abc234/editorial/3236
+
+
+U need phân tách nguyên tố all number in range L -> R but R - L = 1e5, r <= 1e12 
+==> how can u do it in O szLog ? ==> segment sieve
+u need to keep all prime divisor <= sqrt(r) for each i (l <= i <= r) 
+keep them in vector[i - l] then we will be fine
+then there will be at most 1 div that > sqrt(n)
+imple as follow : https://www.codechef.com/viewsolution/56507630    prepare() function
+
+
+How to count the number of LIS ? (with easy imple)
+take a look at this : https://oj.uz/submission/529615
+we will make an BIT store a pair mean <the lis here,the number to obtain it>
+then write the merging function
+- if x.fs == y.fs ==> x.sc + y.sc
+- else take bigger
+this will ensure your way to get all smaller and have longest current icr sequence
+
+We can swap any 2 container in O(1) !!!
+vector,set,multiset<ll> a,b
+a.swap(b);
+avoid swap(a,b)
+
+Brace yourself and good luck 

@@ -1,0 +1,6 @@
+Cost me a 3h to realize that we only need template !!!
+
+Acutually Max and Min for this need a very small reverse !!!
+
+Link to template code : https://pastebin.com/125xgzxE
+prob : https://www.codechef.com/viewsolution/44813153

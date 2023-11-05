@@ -1,0 +1,94 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define ld long double
+#define fs first
+#define sc second
+#define y1 yyyyy
+using namespace std;
+const ll N = 1e5 + 6;
+const ll Log2 = 19;
+const ll mod = 99824435;
+const ld PI = acos(-1);
+typedef pair<ll,ll> LL;
+ 
+ll T;
+ld x1,y1,x2,y2,ag;
+LL a[N];
+ll DOT(ld x1,ld Y1,ld x2,ld Y2){
+    return x1*x2 + Y1*Y2;
+}
+ 
+LL Get_vector(ll x1,ll y1,ll x2,ll y2){
+    return {x2 - x1,y2 - y1}; //tích vô hướng
+}
+ 
+ld Lens(ll x1,ll Y1){
+    return (ld) sqrt(x1*x1 + Y1*Y1);
+}
+ 
+ld Lens_of_point(ll x1,ll y1,ll x2,ll y2){
+    ll p = abs(x1 - x2),q = abs(y1 - y2);
+    return Lens(p,q);
+}
+ 
+///Cross Product, sthg for the convex hull finding
+Given 3 point A B C sorted by sthg if vectorAB x vectorAC
+< 0 right
+> 0 left
+= 0 3 điểm thẳng hàng
+
+Caculate S of a goddamn shape
+Ez one : triangle given ABC then just get |0.5 * (vectorAB x vectorAC)|
+==> for a polygon just get several triangle
+But how about a lõm one ? :D ?
+Fixed a point call it x1,y1 and cal as usual but no absolute value;
+Because of bù trừ ==> draw a shape for further information
+
+ll Cross(ll x1,ll y1,ll x2,ll y2){
+    return x1*y2 - x2*y1;
+
+}
+ 
+struct Line{
+    ld a,b,c; //ax + by + c = 0
+};
+ 
+Line Get_line_equation(ll x1,ll y1,ll x2,ll y2){
+    Line ans;
+    LL p = Get_vector(x1,y1,x2,y2);
+    ans.a = p.sc; ans.b = -p.fs;
+    ans.c = -(ans.a*x1 + ans.b*y1);
+    ll common = __gcd((ll)ans.a,__gcd((ll)ans.b,(ll)ans.c));
+    ans.a /= common; ans.b /= common; ans.c /= common;
+    return ans;
+}
+ 
+ld point_to_line(ll x1,ll y1,Line d){
+    ld cur = fabs(d.a*x1 + d.b*y1 + d.c);
+    return cur/(ld) sqrt(d.a*d.a + d.b*d.b);
+}
+ 
+ld Rad_to_deg(ld x){
+    return x/PI * 180.0;
+}
+ 
+ld angel_by_vector(LL a,LL b){
+    ld p = DOT(a.fs,a.sc,b.fs,b.sc);
+    ld now = Lens(a.fs,a.sc)*Lens(b.fs,b.sc);
+    ld ans = acos(p/now);
+    return Rad_to_deg(ans);
+}
+ 
+Clock wise sorting : 
+
+take the left most point, call this A
+for remain point consider 2 point x and y
+x before y if ccw(vectorAx,vectorxy) < 0
+
+code as follow : 
+bool cmp(LL x,LL y){
+    LL AB = Getvector(v[0],x),BC = Getvector(x,y);
+    return ccw(AB,BC) < 0;
+}
+
+

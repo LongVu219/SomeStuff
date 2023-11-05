@@ -1,0 +1,50 @@
+PP of the days : Stars and Bars theorem:
+Prob1 : given number N count tuples of K element that x1 + x2 + x3 + ..... + xk = N, all x > 0
+
+==> C(k - 1,n - 1) Ez !!!
+
+Prob2 : prob1 but all x >= 0 ? :D ?
+
+So ==> need k - 1 Bars between stars
+There are n + k - 1 item (n stars + k - 1 bars)
+
+We need arrange n star or k - 1 bars first ==> C (k - 1,n + k - 1) = C(n,n + k - 1) ways in total ==> DONE 
+------------------------------------------------------------------------------------------------------
+
+Small Fermat
+
+a^(p - 1) mod (p) = 1 when a%p != 0 
+It's fine btw 0 anyway;
+
+So, if u need calculate a^n, n is super duper big (out of long long) then just calculate n mod p - 1
+
+How to calculate C(k,n) % P with random P ? (such as 3 or 8)
+
+Coe formula : n! / (k! * (n - k)!)
+in ex let P = 3
+See this to got base idea : https://atcoder.jp/contests/arc117/editorial/1136
+- Store f[x] mean maximum số mũ của x! khi chia P   x^(f[x] + 1) > P
+- Store g[x] mean x!/P^(f[x])   %   P   ==> g[5!] = 2*4*5 % 3; g[9!] = 2*2*4*5*7*8 % 3  
+
+==> we will store all f(m) 
+
+if f[n] > f[n - k] + f[k] ==> C k n % P = 0
+else{
+	return g[n] * g[n - k] * g[k] % mod
+	==> DONE
+}
+
+Once you read this ==> nháp ra or die in eforce
+-------------------------------------------------------------------------------------------------------------------
+Hockey Stick identity : https://brilliant.org/wiki/hockey-stick-identity/
+(just because it have a hockey stick shape =)) )
+
+easy to say : 
+C(r,r) + C(r,r + 1) + C(r,r + 2) + C(r,r + 3) + ... + C(r,n) = C(r + 1,n + 1)
+Prove by inductive (suppose it correct for k then try k + 1 also)
+
+The problem of inductive is u need to know the answer before (this may not happen in CP much) 
+--------------------------------------------------------------------------------------------------------------------
+
+
+
